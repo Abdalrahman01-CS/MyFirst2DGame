@@ -28,14 +28,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(spaceBar) && grounded)
+        if(Input.GetKey(spaceBar) && grounded)
         {
             Jump();
         }
 
         if(Input.GetKey(L))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            Vector2 move_L = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            GetComponent<Rigidbody2D>().velocity = move_L;
 
             if (GetComponent<SpriteRenderer>() != null)
             {
@@ -45,7 +47,9 @@ public class Player : MonoBehaviour
 
         if(Input.GetKey(R))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            Vector2 move_R = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            GetComponent<Rigidbody2D>().velocity = move_R;
 
             if (GetComponent<SpriteRenderer>() != null)
             {

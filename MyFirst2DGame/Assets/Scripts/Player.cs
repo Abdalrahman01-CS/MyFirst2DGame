@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
 
     private bool grounded;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,10 @@ public class Player : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = false;
             }
         }
+
+        anim.SetFloat("Speed",Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        anim.SetFloat("Height", GetComponent<Rigidbody2D>().velocity.y);
+        anim.SetBool("Grounded", grounded);
     }
 
     void Jump()

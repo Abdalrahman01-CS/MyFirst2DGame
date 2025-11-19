@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Bush : MonoBehaviour
 {
 
     public float maxSpeed;
     public int damage = 1;
-    public SpriteRenderer sr;
-
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -21,22 +19,27 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    public void Flip()
+  void FixedUpdate()
     {
-        sr.flipX = !sr.flipX;
+        if(true)
+        {
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(-maxSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+        }
+
+        else
+        {
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+        }
     }
+
+    
 
     void OnTriggerEnter2D(Collider2D player)
     {
         if(player.tag == "Bobby")
         {
             FindObjectOfType<PlayerStats>().TakeDamage(damage);
-            Flip();
+            
         }
-
-        else if(player.tag == "Wall")
-            Flip();
     }
-
-  
 }

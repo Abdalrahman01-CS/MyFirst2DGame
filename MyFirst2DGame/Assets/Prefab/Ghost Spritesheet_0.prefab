@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7027077732570688956}
   - component: {fileID: 1314793486594537519}
   - component: {fileID: 699293239332236536}
-  - component: {fileID: 7945127611062282512}
+  - component: {fileID: 1185908216}
   m_Layer: 0
   m_Name: Ghost Spritesheet_0
   m_TagString: Untagged
@@ -128,7 +128,7 @@ MonoBehaviour:
   maxSpeed: 2
   damage: 1
   sr: {fileID: 0}
---- !u!50 &7945127611062282512
+--- !u!50 &1185908216
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
